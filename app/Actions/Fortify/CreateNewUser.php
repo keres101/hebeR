@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 
@@ -31,6 +32,11 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'last_name' => $input['last_name'],
+            'DNI' => $input['DNI'],
+            'date_of_birth' => $input['date_of_birth'],
+            'direction' => $input['direction'],
+            'rol' => "admin"
         ]);
     }
 }

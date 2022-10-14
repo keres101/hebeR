@@ -14,6 +14,10 @@ const form = useForm({
     password: '',
     password_confirmation: '',
     terms: false,
+    last_name:'',
+    DNI:'',
+    date_of_birth:'',
+    direction:''
 });
 
 const submit = () => {
@@ -58,7 +62,51 @@ const submit = () => {
                 />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
+            <div class="mt-4">
+                <InputLabel for="DNI" value="DNI" />
+                <TextInput
+                    id="DNI"
+                    v-model="form.DNI"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+                <InputError class="mt-2" :message="form.errors.DNI" />
+            </div>
+            <div class="mt-4">
+                <InputLabel for="last_name" value="Last Name" />
+                <TextInput
+                    id="last_name"
+                    v-model="form.last_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+                <InputError class="mt-2" :message="form.errors.last_email" />
+            </div>
 
+            <div class="mt-4">
+                <InputLabel for="date_of_birth" value="Date Of Birth" />
+                <TextInput
+                    id="date_of_birth"
+                    v-model="form.date_of_birth"
+                    type="date"
+                    class="mt-1 block w-full"
+                    required
+                />
+                <InputError class="mt-2" :message="form.errors.date_of_birth" />
+            </div>
+            <div class="mt-4">
+                <InputLabel for="direction" value="Direction" />
+                <TextInput
+                    id="direction"
+                    v-model="form.direction"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+                <InputError class="mt-2" :message="form.errors.direction" />
+            </div>
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput

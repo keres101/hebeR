@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +37,24 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-});
 
-Route::get('/testRoute', function () {
-    return 'Hello test';
+    Route::get(
+        '/employee',
+        [EmployeeController::class, 'list']
+    );
+
+    Route::get(
+        '/employee/create',
+        [EmployeeController::class, 'show']
+    );
+
+    Route::post(
+        '/employee/save',
+        [EmployeeController::class, 'save']
+    )->name('employee.save');
+
+    Route::get(
+        '/employee/delete/{id}',
+        [EmployeeController::class, 'delete']
+    );
 });

@@ -23,6 +23,11 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+            $table->string('last_name');
+            $table->string('DNI')->unique();
+            $table->date('date_of_birth');
+            $table->string('direction');
+            $table->set('rol', ['mesero', 'cocinero', 'repartidor', 'admin']);
         });
     }
 
