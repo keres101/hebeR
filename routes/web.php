@@ -42,7 +42,7 @@ Route::middleware([
     Route::get(
         '/employee',
         [EmployeeController::class, 'list']
-    );
+    )->name('employee');
 
     Route::get(
         '/employee/create',
@@ -61,7 +61,7 @@ Route::middleware([
 
     // roles
 
-    Route::get('/roles', [RoleController::class, 'show']);
+    Route::get('/roles', [RoleController::class, 'show'])->name('roles');
 
     Route::get('/roles/create', [RoleController::class, 'create']);
 
