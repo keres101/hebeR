@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
 use App\Models\User;
 use GuzzleHttp\Psr7\Response;
 use Inertia\Inertia;
@@ -52,7 +54,9 @@ class EmployeeController extends Controller
 
     public function list()
     {
-        return Inertia::render('Employee/List', ["users" => User::all()]);
+        $email_current=Auth()->user()->email;
+        $users=User::where('email','!=',$email_current)->get();
+        return Inertia::render('Employee/List', ["users" => $users]);
     }
 
     public function delete($id)
