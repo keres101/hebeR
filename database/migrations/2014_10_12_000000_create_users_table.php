@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('DNI')->unique();
             $table->date('date_of_birth');
             $table->string('direction');
-            $table->set('rol', ['mesero', 'cocinero', 'repartidor', 'admin']);
         });
     }
 

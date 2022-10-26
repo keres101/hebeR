@@ -31,7 +31,6 @@ class User extends Authenticatable
         'DNI',
         'date_of_birth',
         'direction',
-        'rol'
     ];
 
     /**
