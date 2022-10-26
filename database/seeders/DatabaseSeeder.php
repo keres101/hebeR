@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,15 +24,18 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Role::create([
+            'role' => 'admin'
+        ]);
         User::create([
-            'name'=>'admin',
-            'last_name'=>'admin',
-            'DNI'=>'87654321',
-            'date_of_birth'=>'2000-02-22',
-            'direction'=>'unknow',
-            'email'=>'admin@admin.com',
-            'rol'=>'admin',
-            'password'=>Hash::make('admin123')
+            'name' => 'admin',
+            'last_name' => 'admin',
+            'DNI' => '87654321',
+            'date_of_birth' => '2000-02-22',
+            'direction' => 'unknow',
+            'email' => 'admin@admin.com',
+            'role_id' => 1,
+            'password' => Hash::make('admin123')
         ]);
     }
 }
