@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use Auth;
 
 use App\Models\User;
@@ -17,7 +18,7 @@ class EmployeeController extends Controller
     public function show()
     {
         // return "Lista de empleados";
-        return Inertia::render('Employee/Create', ["roles" => ["mesero", "cocinero", "repartidor"]]);
+        return Inertia::render('Employee/Create', ["roles" => Role::all()]);
     }
 
     public function save(Request $req)
@@ -33,7 +34,7 @@ class EmployeeController extends Controller
                 'direction' => 'required',
                 'email' => 'required | email | unique:users',
                 'password' => 'required | confirmed',
-                'rol' => 'required'
+                'role_id' => 'required'
             ]);
 
             User::create([
@@ -43,7 +44,7 @@ class EmployeeController extends Controller
                 'date_of_birth' => $req['date_of_birth'],
                 'direction' => $req['direction'],
                 'email' => $req['email'],
-                'rol' => $req['rol'],
+                'role_id' => $req['role_id'],
                 'password' => Hash::make($req['password'])
             ]);
             return redirect('/employee');
@@ -54,8 +55,8 @@ class EmployeeController extends Controller
 
     public function list()
     {
-        $email_current=Auth()->user()->email;
-        $users=User::where('email','!=',$email_current)->get();
+        $email_current = Auth()->user()->email;
+        $users = User::where('email', '!=', $email_current)->get();
         return Inertia::render('Employee/List', ["users" => $users]);
     }
 
