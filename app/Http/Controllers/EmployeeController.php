@@ -36,7 +36,7 @@ class EmployeeController extends Controller
                 'password' => 'required | confirmed',
                 'role_id' => 'required'
             ]);
-
+            print('role iddd' . $req['role_id']);
             User::create([
                 'name' => $req['name'],
                 'last_name' => $req['last_name'],

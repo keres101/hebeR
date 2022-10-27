@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const {roles}=defineProps(['roles'])
+console.log(roles)
 
 const form=useForm({
     name:'',
@@ -15,14 +16,14 @@ const form=useForm({
     DNI:'',
     date_of_birth:'',
     direction:'',
-    rol:'',
+    role_id:'',
     terms:false
 });
 
 const submit=()=>{
-    console.log("Hello");
+    console.log(form);
     form.post(route('employee.save'),{
-        onFinish:()=>console.log("Hello finish")
+        onFinish:()=>console.log("Registrado")
     })
 }
 </script>
@@ -56,8 +57,8 @@ const submit=()=>{
                     <input id="email" type="email" name="email" v-model="form.email">
                 </div>
                 <div>
-                    <select name="rol" v-model="form.rol">
-                        <option v-for="rol in roles" :value="rol">{{rol}}</option>
+                    <select name="role_id" v-model="form.role_id">
+                        <option v-for="rol in roles" :value="rol.id">{{rol.role}}</option>
                     </select>
                 </div>
                 <div>
