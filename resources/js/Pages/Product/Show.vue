@@ -20,7 +20,7 @@ console.log(props.products)
       <td><td><td><td><th scope="row">{{index + 1}}</th></td></td></td></td>
       <td align="center">{{product.name}}</td>
       <td align="center"><button>Editar</button></td>
-      <td align="center"><button>Eliminar</button></td>
+      <td align="center"><a :href="`/product/delete/${product.id}`">Eliminar</a></td>
     </tr>
 </tbody>
 </table>

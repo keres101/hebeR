@@ -44,4 +44,10 @@ class ProductController extends Controller
     {
         return Inertia::render('Product/Show', ['products' => Product::all()]);
     }
+
+    public function delete($id)
+    {
+        Product::find($id)->delete();
+        return redirect('/product');
+    }
 }
