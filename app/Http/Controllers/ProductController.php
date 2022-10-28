@@ -33,10 +33,15 @@ class ProductController extends Controller
                 'type' => $req['type'],
                 'stock' => $req['stock']
             ]);
-            return redirect('/product/create');
+            return redirect('/product');
         } catch (\Throwable $th) {
             //throw $th;
             return response()->json(["error" => $th]);
         }
+    }
+
+    public function show()
+    {
+        return Inertia::render('Product/Show', ['products' => Product::all()]);
     }
 }

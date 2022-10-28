@@ -74,4 +74,6 @@ Route::middleware([
     Route::get('/product/create', [ProductController::class, 'showCreate']);
 
     Route::post('/product/create', [ProductController::class, 'create'])->name('product.create');
+
+    Route::get('/product', [ProductController::class, 'show']);
 });
