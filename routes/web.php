@@ -71,5 +71,7 @@ Route::middleware([
     Route::get('/roles/delete/{id}', [RoleController::class, 'delete']);
 
     // Products
-    Route::get('/product/create', [ProductController::class, 'show_create']);
+    Route::get('/product/create', [ProductController::class, 'showCreate']);
+
+    Route::post('/product/create', [ProductController::class, 'create'])->name('product.create');
 });
