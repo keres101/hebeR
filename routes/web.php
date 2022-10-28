@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Application;
@@ -68,4 +69,7 @@ Route::middleware([
     Route::post('/roles/save', [RoleController::class, 'save'])->name('roles.save');
 
     Route::get('/roles/delete/{id}', [RoleController::class, 'delete']);
+
+    // Products
+    Route::get('/product/create', [ProductController::class, 'show_create']);
 });
